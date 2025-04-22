@@ -1,0 +1,36 @@
+<head>
+        <!-- Permet de configurer le site en responsive -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Import du fichier style.css -->
+        <link rel="stylesheet" href="../css/style.css?v=<?= time(); ?>" />
+
+        <!-- Nomme l'onglet du navigateur -->
+        <title>Profil</title>
+</head>
+
+
+<main>
+
+<h1>Bonjour</h1>
+<h2>Liste des chercheurs d'emploi:</h2>
+<section>
+        <article class="article">
+
+            <h2 class="article-title">{{ profil.firstName }}</h2>
+            <h2 class="article-title">{{ profil.lastName }}</h2>
+            <img class="article-image" src="{{ profil.avatar }}" />
+            <p  class="article-content">Job : {{ profil.job }}</p>
+            <p  class="article-content">{% for language in profil.languages %} {{ language }}  {% endfor %}</p>
+            {% if profil.looksForJob %}
+                <p>Cherche un emploi !</p>
+            {% else %}
+                <p>Ne cherche pas d'emploi pour l'instant.</p>
+             {% endif %}
+             
+        </article>
+
+
+</section> 
+</main>

@@ -6,14 +6,24 @@
 
 			<h1>Liste des articles</h1>
 
-
 			{% for article in articles %}
 
-			<article>
+				{% if article.is_published%}
 
-				<h2>{{ article.title }}</h2>
+					<article>
+
+						<h2>{{ article.title }}</h2>
+
+						<p>{{ article.content }}</p>
+
+						<p>{{ article.created_at | date('d-m-Y')}}
+
+						<img src="{{ article.image }}" />
+
+					</article>
 				
-			</article>
+				{% endif %}
+				
 			{% endfor %}
 
 		</main>
