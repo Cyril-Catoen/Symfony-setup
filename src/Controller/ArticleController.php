@@ -7,25 +7,25 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
 // Création de la classe HomeController
-class PageController {
+class ArticleController {
 
 
 	// Ajout d'une fonction nommée Home (méthode) qui exécute un var_dump
 	// Définition d'une route, soit le chemin d'accès (url) à "/"
 	// Quand un utilisateur demande l'url "/", la fonction est appelée
-	#[Route('/', name:"home")]
-	public function home() {
-		var_dump('Page accueil'); die;
+	#[Route('/list-articles', name:"list-articles")]
+	public function listArticles() {
+		var_dump('Liste des articles'); die;
 	}
 
-	#[Route('/contact', name:"contact")]
-	public function contact() {
-		var_dump('Page de contact'); die;
+	#[Route('/create-articles', name:"create-articles")]
+	public function createArticles() {
+		var_dump("Page de création d'articles"); die;
 	}
 
-	#[Route('/a-propos', name:"a-propos")]
-	public function propos() {
-		var_dump('Page à propos de'); die;
+	#[Route('/delete-articles', name:"delete-articles")]
+	public function deleteArticles() {
+		var_dump('Page pour supprimer des articles'); die;
 	}
 
 }
