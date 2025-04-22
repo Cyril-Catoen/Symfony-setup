@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 // Remplace le require. Indique le namespace de la class à utiliser. Symfony & composer réalisent le require automatiquement. 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 // Création de la classe HomeController
@@ -15,17 +16,19 @@ class PageController {
 	// Quand un utilisateur demande l'url "/", la fonction est appelée
 	#[Route('/', name:"home")]
 	public function home() {
-		var_dump('Page accueil'); die;
+		// j'utilise la classe Response de Symfony
+		// pour renvoyer une réponse HTTP, incluant HTML et un status HTTP 200
+		return new Response("<p>Accueil</p>", 200);
 	}
 
 	#[Route('/contact', name:"contact")]
 	public function contact() {
-		var_dump('Page de contact'); die;
+		return new Response("<p>Contact</p>", 200);
 	}
 
 	#[Route('/a-propos', name:"a-propos")]
 	public function propos() {
-		var_dump('Page à propos de'); die;
+		return new Response("<p>A propos de</p>", 200);
 	}
 
 }
